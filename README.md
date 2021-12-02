@@ -1,4 +1,4 @@
-# Python-Influx
+# Python-InfluxDB
 
 InfluxDB works really well with observability tools like Grafana and more. For scenarios where an observability tool cannot be connected using API and only works with DB's, we can use this integration to pull timeseries data from Catchpoint and store it in influxDB so that we can plot similar dashboards as Catchpoint.
 
