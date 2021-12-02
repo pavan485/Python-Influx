@@ -1,0 +1,26 @@
+2021-12-01 21:31:46,466 - request_handler - INFO - Getting authorization oken
+2021-12-01 21:31:47,731 - request_handler - INFO - calling API with the token
+2021-12-01 21:31:51,479 - request_handler - INFO - calling API with the token
+2021-12-01 21:31:54,904 - request_handler - INFO - calling API with the token
+2021-12-01 21:31:58,531 - request_handler - INFO - calling API with the token
+2021-12-01 21:32:01,511 - request_handler - INFO - calling API with the token
+2021-12-01 21:32:03,424 - request_handler - INFO - calling API with the token
+2021-12-01 21:32:04,605 - request_handler - INFO - calling API with the token
+2021-12-01 21:32:05,853 - request_handler - INFO - calling API with the token
+2021-12-01 21:34:45,724 - request_handler - INFO - Getting authorization oken
+2021-12-01 21:34:46,971 - request_handler - INFO - calling API with the token
+2021-12-01 21:34:50,538 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:34:50,540 - request_handler - INFO - calling API with the token
+2021-12-01 21:34:53,868 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:34:53,868 - request_handler - INFO - calling API with the token
+2021-12-01 21:34:57,659 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:34:57,660 - request_handler - INFO - calling API with the token
+2021-12-01 21:35:00,567 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:35:00,567 - request_handler - INFO - calling API with the token
+2021-12-01 21:35:02,828 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:35:02,829 - request_handler - INFO - calling API with the token
+2021-12-01 21:35:04,020 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:35:04,022 - request_handler - INFO - calling API with the token
+2021-12-01 21:35:05,180 - utils - INFO - Parsing data for InfluxDB
+2021-12-01 21:35:05,180 - request_handler - INFO - calling API with the token
+2021-12-01 21:35:06,505 - utils - INFO - Parsing data for InfluxDB

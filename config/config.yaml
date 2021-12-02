@@ -1,0 +1,23 @@
+client_id :  'RW-gX-jZq1A_t8_x'
+client_secret : '6e1a1aa6-da68-4f66-a547-1895ae30841b'
+refresh_token : 'None'
+protocol : 'https'
+domain : 'io.catchpoint.com/ui/api'
+token_endpoint: 'token'
+version : 'v1'
+rawdata_endpoint : 'performance/raw?tests'
+test_ids: { 
+              web : ['142613','142614','142615','142616','142617','142619','142620','142621','142622','142623','142624','142625','142626','142627','142628','142629','142630','142631'],
+              traceroute : ['142607','142608','142609'], 
+              api : ['142637','142638','142683','142689'],
+              transaction: ['142602','142603'],
+              dns : ['142639','142640','142641','142642','142643','142644','142645','142646','142647'],
+              smtp : ['142604'],
+              websocket: ['842700'],
+              ping : ['142599','142600','142601']
+              
+          }
+# get_logger  
+batch_size : 10
+log_file : 'app.log'
+log_level : 'debug'

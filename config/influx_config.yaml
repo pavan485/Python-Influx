@@ -1,0 +1,4 @@
+token : '8QKeaNWkzTCJ_YyQrdDTgrpCXw7RDzH-KGTcMrR_DF9IJJxAY8wfXMG6R-XoToeoPGSdG9oF6pfMuadfbAgWWg=='
+org : 'Catchpoint'
+bucket : 'cp'
+influx_url : 'http://localhost:8086'
