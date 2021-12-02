@@ -1,6 +1,7 @@
 import influxdb_client
 import yaml
 import log
+import dateutil.parser as dp
 from influxdb_client.client.write_api import SYNCHRONOUS
 creds = yaml.safe_load(open('./config/influx_config.yaml'))
 conf = yaml.safe_load(open('./config/config.yaml'))
@@ -14,8 +15,6 @@ class Utils():
         if structure is not None:    
             test_params = []
             final_list = [] #list of all jsons
-            if 'detail' and 'fields' and 'synthetic_metrics' not in structure:
-                return None
             synthetic_metrics = structure['detail']['fields']['synthetic_metrics']
 
         for i in synthetic_metrics:
@@ -26,12 +25,11 @@ class Utils():
                 values = {} # json which contains tags fields time 
                 values['measurement'] =  'measurement'
                 tag = {
-                    'data_timestamp' : value['dimension']['name'],
                     'breakdown_1' : value['breakdown_1']['name'],
                     'breakdown_2' : value['breakdown_2']['name']
                 }
                 values['tags'] = tag
-                values['time'] = value['dimension']['name']
+                values['time_stamp'] =dp.parse(value['dimension']['name']).timestamp()*1000
                 metric_values = value['synthetic_metrics']
                 fields = {}
                 for i in range(0,len(metric_values),1):
