@@ -12,10 +12,10 @@ InfluxDB works really well with observability tools like Grafana and more. For s
 
 Copy the Python-Influx folder to your machine
 Run following commands in the directory /Python-Influx
-   python -m pip install requests
-   pip install pyyaml
-   pip install logging
-   pip install influxdb-client
+   - python -m pip install requests
+   - pip install pyyaml
+   - pip install logging
+   - pip install influxdb-client
    
    
 # Configuration
