@@ -23,7 +23,7 @@ class Utils():
         
         for value in structure['detail']['items']:
             values = {} # json which contains tags fields time 
-            values['measurement'] =  'New_measurement_1'
+            values['measurement'] = creds['measurement_name']
             tag = {
                 'breakdown_1' : value['breakdown_1']['name'],
                 'breakdown_2' : value['breakdown_2']['name']
