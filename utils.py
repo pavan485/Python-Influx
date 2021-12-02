@@ -24,7 +24,7 @@ class Utils():
         try:
             for value in structure['detail']['items']:
                 values = {} # json which contains tags fields time 
-                values['measurement'] =  'raw_data'
+                values['measurement'] =  'measurement'
                 tag = {
                     'data_timestamp' : value['dimension']['name'],
                     'breakdown_1' : value['breakdown_1']['name'],
