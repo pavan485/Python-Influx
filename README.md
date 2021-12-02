@@ -18,28 +18,54 @@ Run following commands in the directory /Python-Influx
    - pip install influxdb-client
    
    
-# Configuration
+### Configuration
 In the config.yaml file under config sub-directory, enter your Catchpoint API consumer key and secret
 In the tests object of the config.js file, enter the test IDs you want to pull the data for in a dictionary of array format.
 
-Example
+*Example:*
 
     test_ids: { 
-              web : ['142613','142614','142615','142616','142617','142619','142620','142621','142622'],
+              web : ['142619','142620','142621','142622'],
               traceroute : ['142607','142608','142609'], 
               api : ['142637','142638','142683','142689'],
               transaction: ['142602','142603'],
-              dns : ['142639','142640','142641','142642','142643','142644','142645','142646','142647'],
+              dns : '142644','142645','142646','142647'],
               smtp : ['142604'],
               websocket: ['842700'],
               ping : ['142599','142600','142601']
               
           }
-          
+---       
 In the config_influx.js file, enter your Influx API token.
 In the same influx_config.yaml file, enter your InfluxDB organization name, bucket name, url and measurement name where the data will be stored. Please note that the organization and bucket should be created after installation of InfluxDB. The default Influx URL is http://localhost:8086
 
 
-# How to run
+### How to run
 
-Create a cronjob to run the insert_db.js script every 15 minutes.
+- In the /Python-Influx directory, run `python application.py` 
+ 
+ **or**
+ 
+- Create a cronjob to run the application.py file every 15 minutes.
+
+*Example crontab entry, if the file resides in /usr/local/bin/application.py*
+
+`*/15 * * * * cd /usr/local/bin/ && python /usr/local/bin/application.py > /usr/local/bin/logs/cronlog.log 2>&1`
+
+
+## File Structure
+
+    Nodejs-Influx/
+    ├── request_handler.py       ## Contains APIs related to authentication       
+    ├── config
+    | ├── config_catchpoint.yaml          ## Configuration file for Catchpoint 
+    | ├── config_influx.yaml    ## Configuration file for InfluxDB 
+    ├── log
+    | ├── app.log        ## Contains informational logs. File name will be based on date of execution
+    ├── application.py   ## main file
+    ├── log.py
+    ├── request_handler.py       ## Contains API requests for token and raw endpoint 
+    ├── utils.py         ##  utility fot partsing data, inserting it to influx and validating configurations
+           
+
+Once the script starts running and data is inserted into InfluxDB, it can queried using [Flux queries](https://docs.influxdata.com/influxdb/v2.1/query-data/execute-queries/influx-api/) or visualized in graphs by opening the [Influx Data Explorer](https://docs.influxdata.com/influxdb/cloud/query-data/execute-queries/data-explorer/). 
