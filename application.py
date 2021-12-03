@@ -28,9 +28,8 @@ class Application(object):
                     if expired is True:
                         self.__request_handler.authorize(conf)
                         data = self.__request_handler.fetch_data(conf)
-                    logger.info(data)   
                     parsed_json = utils.Utils.parse_raw(data)
-                    print(parsed_json)
+             
                     if final_list is []:
                         final_list=parsed_json
                     else:
