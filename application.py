@@ -35,10 +35,10 @@ class Application(object):
                         if parsed_json:
                             final_list.extend(parsed_json)
                     logger.info(final_list)
-                # if final_list is not None:
-                #     utils.Utils.insert_to_influx(final_list)
-                # else:
-                #     logger.exception('No Data')
+                if final_list is not None:
+                    utils.Utils.insert_to_influx(final_list)
+                else:
+                    logger.exception('No Data')
         except Exception as e:
             logger.exception(str(e))
      
