@@ -20,7 +20,7 @@ Run following commands in the directory /Python-Influx
    
 ### Configuration
 In the config.yaml file under config sub-directory, enter your Catchpoint API consumer key and secret
-In the tests object of the config.js file, enter the test IDs you want to pull the data for in a dictionary of array format.
+In the tests object of the config_catchpoint.py file, enter the test IDs you want to pull the data for in a dictionary of array format.
 
 *Example:*
 
@@ -36,7 +36,7 @@ In the tests object of the config.js file, enter the test IDs you want to pull t
               
           }
 ---       
-In the config_influx.js file, enter your Influx API token.
+In the config_influx.py file, enter your Influx API token.
 In the same influx_config.yaml file, enter your InfluxDB organization name, bucket name, url and measurement name where the data will be stored. Please note that the organization and bucket should be created after installation of InfluxDB. The default Influx URL is http://localhost:8086
 
 
@@ -55,7 +55,7 @@ In the same influx_config.yaml file, enter your InfluxDB organization name, buck
 
 ## File Structure
 
-    Nodejs-Influx/
+    python-Influx/
     ├── request_handler.py       ## Contains APIs related to authentication       
     ├── config
     | ├── config_catchpoint.yaml          ## Configuration file for Catchpoint 
