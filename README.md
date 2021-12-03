@@ -53,16 +53,16 @@ In the same influx_config.yaml file, enter your InfluxDB organization name, buck
 ## File Structure
 
     Python-Influx/
-    ├── request_handler.py       ## Contains APIs related to authentication       
+    ├── request_handler.py          ## Contains APIs related to authentication       
     ├── config
-    | ├── config_catchpoint.yaml          ## Configuration file for Catchpoint 
-    | ├── config_influx.yaml    ## Configuration file for InfluxDB 
+    | ├── config_catchpoint.yaml    ## Configuration file for Catchpoint 
+    | ├── config_influx.yaml        ## Configuration file for InfluxDB 
     ├── log
-    | ├── app.log        ## Contains informational logs. File name will be based on date of execution
-    ├── application.py   ## main file
+    | ├── app.log                   ## Contains informational and error logs. 
+    ├── application.py              ## main file
     ├── log.py
-    ├── request_handler.py       ## Contains API requests for token and raw endpoint 
-    ├── utils.py         ##  utility fot partsing data, inserting it to influx and validating configurations
+    ├── request_handler.py          ## Contains API requests for token and raw endpoint 
+    ├── utils.py                    ##  utility fot partsing data, inserting it to influx and validating configurations
            
 
 Once the script starts running and data is inserted into InfluxDB, it can queried using [Flux queries](https://docs.influxdata.com/influxdb/v2.1/query-data/execute-queries/influx-api/) or visualized in graphs by opening the [Influx Data Explorer](https://docs.influxdata.com/influxdb/cloud/query-data/execute-queries/data-explorer/). 
