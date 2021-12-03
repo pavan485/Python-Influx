@@ -52,7 +52,7 @@ In the same influx_config.yaml file, enter your InfluxDB organization name, buck
 
 ## File Structure
 
-    python-Influx/
+    Python-Influx/
     ├── request_handler.py       ## Contains APIs related to authentication       
     ├── config
     | ├── config_catchpoint.yaml          ## Configuration file for Catchpoint 
