@@ -14,7 +14,7 @@ Copy the Python-Influx folder to your machine
 Run following commands in the directory /Python-Influx
    - python -m pip install requests
    - pip install pyyaml
-   - pip install logging
+   - pip install logger
    - pip install influxdb-client
    
    
