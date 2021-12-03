@@ -42,9 +42,6 @@ In the same influx_config.yaml file, enter your InfluxDB organization name, buck
 
 ### How to run
 
-- In the /Python-Influx directory, run `python application.py` 
- 
- **or**
  
 - Create a cronjob to run the application.py file every 15 minutes.
 
