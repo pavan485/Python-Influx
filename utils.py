@@ -1,9 +1,9 @@
-import influxdb_client
 import yaml
 import log
+import pymongo
 import dateutil.parser as dp
 from influxdb_client.client.write_api import SYNCHRONOUS
-creds = yaml.safe_load(open('./config/config_influx.yaml'))
+creds = yaml.safe_load(open('./config/config_mongo.yaml'))
 conf = yaml.safe_load(open('./config/config_catchpoint.yaml'))
 logger = log.get_logger(__name__,conf['log_file'],conf['log_level'])
 
@@ -28,19 +28,23 @@ class Utils():
         
         for value in structure['detail']['items']:
             values = {} # json which contains tags fields time 
-            values['measurement'] =  creds['measurement_name']
-            tag = {
-                'breakdown_1' : value['breakdown_1']['name'],
-                'breakdown_2' : value['breakdown_2']['name']
-            }
-            values['tags'] = tag
+            
+            
+            values['breakdown_1'] = value['breakdown_1']['name']
+            values['breakdown_2'] = value['breakdown_2']['name']
+            if 'step' in value:
+                values['step'] = value['step']
+            if 'hop_number' in value:
+                values['hop_number'] = value['hop_number']
+        
+            
             values['time_stamp'] = dp.parse(value['dimension']['name']).timestamp()*1000000
 
             metric_values = value['synthetic_metrics']
             fields = {}
             for i in range(0,len(metric_values),1):
                 fields[test_params[i]]=metric_values[i]
-            values['fields'] = fields
+            values['metrics'] = fields
             final_list.append(values)
         logger.info(final_list)
         return final_list
@@ -50,24 +54,20 @@ class Utils():
         
 
     @staticmethod
-    def insert_to_influx(data):
-        logger.info("Pushing data to Influx")
-        token = creds['token']
-        org = creds['org']
-        bucket = creds['bucket']
-        url = creds['influx_url']
+    def write_data(data):
+        logger.info("Pushing data to mongodb")
+        database = creds['database']
+        collection = creds['collection']
+        
+        url = creds['mongo_url']
         try:
-        #todo try catch
-            client = influxdb_client.InfluxDBClient(
-            url=url,
-            token=token,
-            org=org
-                )
-            #todo null
-            write_api = client.write_api(write_options=SYNCHRONOUS)
-            write_api.write(bucket, org, data)
-            query = f'from(bucket: \"{bucket}\") |> range(start: -1h)'
-            tables = client.query_api().query(query, org=org)
+        
+            myclient = pymongo.MongoClient(url)
+            mydb = myclient[database]
+            mycol = mydb[collection]
+
+            result = mycol.insert_many(data)
+            logger.info("Documents were inserted")
         
         except Exception as e:
             logger.exception(str(e))
