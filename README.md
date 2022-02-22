@@ -20,7 +20,7 @@ Run following commands in the directory /Python-Influx
    
 ### Configuration
 In the 'config_influx.yaml' file under config sub-directory, enter your [Catchpoint API consumer key and secret](https://portal.catchpoint.com/ui/Content/Administration/ApiDetail.aspx)
-In the tests object of the 'config_catchpoint.yaml' file, enter the test IDs you want to pull the data for in a dictionary of array format.
+In the test_ids object of the 'config_catchpoint.yaml' file, enter the test IDs you want to pull the data for in a dictionary of array format.
 
 *Example:*
 
