@@ -48,6 +48,10 @@ In the same `config_influx.yaml` file, enter your InfluxDB organization name, bu
 
 `*/15 * * * * cd /usr/local/bin/ && python /usr/local/bin/application.py > /usr/local/bin/logs/cronlog.log 2>&1`
 
+or 
+
+- In the /Influx-Python directory, run appliaction.py after uncommenting the while true: and time.sleep()
+
 ## File Structure
 
     Python-Influx/
